@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "Profile.Domain": ["./Profile.Domain/index.ts"],
+      "Profile.Application": ["./Profile.Application"],
+      "Profile.Infrastructure": ["./Profile.Infrastructure"],
+      "Profile.Contracts": ["./Profile.Contracts"]
+    }
+  },
+  "include": [
+    "Profile.Presentation/**/*.ts",
+    "Profile.Domain/**/*.ts",
+    "Profile.Infrastructure/**/*.ts",
+    "Profile.Application/**/*.ts",
+    "Profile.Contracts/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

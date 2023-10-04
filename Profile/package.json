@@ -1,0 +1,12 @@
+{
+  "name": "@neda/profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r tsconfig-paths/register IAM.Presentation/Program.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
