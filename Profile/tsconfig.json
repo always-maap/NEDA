@@ -7,7 +7,8 @@
       "Profile.Domain": ["./Profile.Domain/index.ts"],
       "Profile.Application": ["./Profile.Application"],
       "Profile.Infrastructure": ["./Profile.Infrastructure"],
-      "Profile.Contracts": ["./Profile.Contracts"]
+      "Profile.Contracts": ["./Profile.Contracts"],
+      "Profile.Subscriber": ["./Profile.Subscriber"]
     }
   },
   "include": [
@@ -15,7 +16,8 @@
     "Profile.Domain/**/*.ts",
     "Profile.Infrastructure/**/*.ts",
     "Profile.Application/**/*.ts",
-    "Profile.Contracts/**/*.ts"
+    "Profile.Contracts/**/*.ts",
+    "Profile.Subscriber/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

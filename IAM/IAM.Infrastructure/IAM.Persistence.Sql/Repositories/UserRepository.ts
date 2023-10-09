@@ -1,4 +1,3 @@
-import { Transaction as TTransaction } from "sequelize";
 import { ITransaction } from "@neda/framework";
 
 import { IUserRepository } from "IAM.Application";

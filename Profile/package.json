@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register IAM.Presentation/Program.ts"
+    "dev": "nodemon -r tsconfig-paths/register Profile.Presentation/Program.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.6.0"
+  }
 }

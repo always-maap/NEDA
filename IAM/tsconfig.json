@@ -4,7 +4,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "IAM.Domain": ["./IAM.Domain/index.ts"],
+      "IAM.Domain": ["./IAM.Domain"],
       "IAM.Application": ["./IAM.Application"],
       "IAM.Infrastructure": ["./IAM.Infrastructure"],
       "IAM.Contracts": ["./IAM.Contracts"],
