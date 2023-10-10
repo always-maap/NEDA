@@ -1,6 +1,8 @@
-import { UserCreateParam } from "./UserProfileCreateParam";
+import { UserProfile } from "Profile.Domain";
+import { UserProfileCreateParam } from "./UserProfileCreateParam";
+import { UserProfileUpdateParam } from "./UserProfileUpdateParam";
 
 export interface IUserProfileService {
-  HandleCreate(params: UserCreateParam): void;
-  HandleUpdate(): void;
+  HandleCreate(params: UserProfileCreateParam): Promise<UserProfile>;
+  HandleUpdate(params: UserProfileUpdateParam): void;
 }

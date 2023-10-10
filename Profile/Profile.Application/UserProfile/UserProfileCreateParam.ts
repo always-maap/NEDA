@@ -1,4 +1,4 @@
-export interface UserCreateParam {
+export interface UserProfileCreateParam {
   UserId: string;
   FirstName: string;
   LastName: string;

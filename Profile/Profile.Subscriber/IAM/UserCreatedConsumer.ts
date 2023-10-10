@@ -17,6 +17,8 @@ export class UserCreatedConsumer {
       Gender: "male",
     };
 
-    await this._userProfileService.HandleCreate(message);
+    try {
+      const x = await this._userProfileService.HandleCreate(message);
+    } catch (e) {}
   }
 }

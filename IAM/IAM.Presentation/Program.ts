@@ -1,5 +1,6 @@
 // loads environment variables from a .env file into process.env. built-in since Node.js version 20.6.0
 import "dotenv/config";
+import "reflect-metadata";
 import express from "express";
 import bodyParser from "body-parser";
 

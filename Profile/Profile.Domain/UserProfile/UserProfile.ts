@@ -6,6 +6,7 @@ import { Location } from "./Location";
 import { LookingFor } from "./LookingFor";
 import { CreateUserOptions } from "./CreateUserOptions";
 import { CreateUserFactoryOptions } from "./CreateUserFactoryOptions";
+import { UpdateUserProfileOptions } from "./UpdateUserProfileOptions";
 
 export class UserProfile extends Entity {
   UserId: string;
@@ -47,5 +48,23 @@ export class UserProfile extends Entity {
       bio: null,
       education: Education.PreferNotToSay,
     });
+  }
+
+  public UpdateUserProfile(options: UpdateUserProfileOptions) {
+    if (options.Age) {
+      this.Age = options.Age;
+    }
+    if (options.Bio) {
+      this.Bio = options.Bio;
+    }
+    if (options.Education) {
+      this.Education = options.Education as Education;
+    }
+    if (options.Location) {
+      this.Location = options.Location;
+    }
+    if (options.LookingFor) {
+      this.LookingFor = options.LookingFor as LookingFor;
+    }
   }
 }

@@ -19,4 +19,10 @@ export abstract class Entity implements IEntity {
   public ClearDomainEvents(): void {
     this._domainEvents = [];
   }
+
+  public EnsureIsNotNull(): asserts this {
+    if (this === null) {
+      throw new Error("Entity not found");
+    }
+  }
 }
