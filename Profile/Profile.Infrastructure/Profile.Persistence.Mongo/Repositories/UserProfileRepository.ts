@@ -1,15 +1,21 @@
 import { IUserProfileRepository } from "Profile.Application";
 import { UserProfile } from "Profile.Domain";
 import { UserProfileModel } from "../Configurations/UserProfileConfiguration";
+import { CreateUserOptions } from "Profile.Domain/UserProfile/CreateUserOptions";
 
 export class UserProfileRepository implements IUserProfileRepository {
   async GetByUserId(userId: string) {
-    return await UserProfileModel.findOne({ UserId: userId });
+    const x = await UserProfileModel.findOne({ UserId: userId });
+
+    if (!x) {
+      return null;
+    }
+
+    return new UserProfile(l);
   }
 
   async Update(userId: string, userProfile: UserProfile) {
     await UserProfileModel.updateOne({ UserId: userId }, userProfile);
-    throw new Error("Method not implemented.");
   }
 
   async UserIdExists(userId: string) {

@@ -3,7 +3,6 @@ version: "3.7"
 services:
   neda_gateway:
     container_name: neda_gateway
-    restart: always
     ports:
       - "8080:80"
     image: nginx

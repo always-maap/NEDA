@@ -7,7 +7,7 @@ export const MapRoutes = async () => {
 
   const routes = Router();
 
-  routes.put("/:userId", profileController.Update);
+  routes.put("/", profileController.Update);
 
   return routes;
 };

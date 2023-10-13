@@ -11,9 +11,10 @@ export class UserProfileController {
     this._userProfileService = userProfileService;
   }
 
-  public Update(req: Request, res: Response) {
+  public Update = async (req: Request, res: Response) => {
     const body = UserProfileUpdateSchema.parse(req.body);
     const params = UserProfileUpdateMapper(body);
-    this._userProfileService.HandleUpdate(params);
-  }
+    await this._userProfileService.HandleUpdate(params);
+    res.send("ok");
+  };
 }

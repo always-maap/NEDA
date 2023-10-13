@@ -22,7 +22,7 @@ export class UserProfile extends Entity {
   Education: Education | null;
   Pictures: string[];
 
-  private constructor(options: CreateUserOptions) {
+  public constructor(options: CreateUserOptions) {
     super();
     this.UserId = options.userId;
     this.FirstName = options.firstName;
