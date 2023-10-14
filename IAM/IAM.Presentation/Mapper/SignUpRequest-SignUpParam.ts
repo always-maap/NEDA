@@ -1,7 +1,7 @@
 import { SignUpParam } from "IAM.Application";
 import { SignUpRequest } from "IAM.Contracts";
 
-export function SignUpMapper(req: SignUpRequest): SignUpParam {
+export function SignUpRequestToSignUpParam(req: SignUpRequest): SignUpParam {
   return {
     FirstName: req.firstName,
     LastName: req.lastName,

@@ -29,14 +29,7 @@ export class SignUpService implements ISignUpService {
   public async Handle(params: SignUpParam) {
     await this._unitOfWork.Begin();
 
-    const user = User.Create(
-      uuid.v4(),
-      params.FirstName,
-      params.LastName,
-      params.Phone,
-      params.Gender,
-      params.Picture
-    );
+    const user = User.Create(uuid.v4(), params.FirstName, params.LastName, params.Phone, params.Gender, params.Picture);
 
     try {
       await this._userRepository.Add(user);

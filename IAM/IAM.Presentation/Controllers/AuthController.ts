@@ -1,25 +1,18 @@
 import type { Request, Response } from "express";
 
-import {
-  ISignInService,
-  ISignUpService,
-  IVerifyCodeService,
-} from "IAM.Application";
+import { ISignInService, ISignUpService, IVerifyCodeService } from "IAM.Application";
 import { SignInRequest, SignUpRequest, VerifyCodeRequest } from "IAM.Contracts";
-import { SignUpMapper } from "../Mapper/SignUpMapper";
+import { SignUpRequestToSignUpParam } from "../Mapper/SignUpRequest-SignUpParam";
 import { SignInMapper } from "../Mapper/SignInMapper";
 import { VerifyCodeMapper } from "../Mapper/VerifyCodeMapper";
+import { AuthenticationResultToAuthenticationResponse } from "../Mapper/AuthenticationResult-AuthenticationResponse";
 
 export class AuthController {
   private readonly _signUpService: ISignUpService;
   private readonly _signInService: ISignInService;
   private readonly _verifyService: IVerifyCodeService;
 
-  constructor(
-    signUpService: ISignUpService,
-    signInService: ISignInService,
-    verifyCodeService: IVerifyCodeService
-  ) {
+  constructor(signUpService: ISignUpService, signInService: ISignInService, verifyCodeService: IVerifyCodeService) {
     this._signUpService = signUpService;
     this._signInService = signInService;
     this._verifyService = verifyCodeService;
@@ -27,10 +20,12 @@ export class AuthController {
 
   public SignUp = async (req: Request, res: Response) => {
     const body: SignUpRequest = req.body;
-    const mappedParam = SignUpMapper(body);
+    const mappedParam = SignUpRequestToSignUpParam(body);
+
     const authenticationResult = await this._signUpService.Handle(mappedParam);
 
-    res.status(201).send(authenticationResult);
+    const resp = AuthenticationResultToAuthenticationResponse(authenticationResult);
+    res.status(201).send(resp);
   };
 
   public SignIn = async (req: Request, res: Response) => {

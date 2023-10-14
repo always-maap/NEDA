@@ -1,8 +1,7 @@
-import { UserProfileModel } from "../Configurations/UserProfileConfiguration";
 import { CreateUserOptions } from "Profile.Domain/UserProfile/CreateUserOptions";
 
 export function UserProfileModelToUserProfileMapper(
-  userProfileModel: typeof UserProfileModel
+  userProfileModel: any
 ): CreateUserOptions {
   return {
     age: userProfileModel.Age,

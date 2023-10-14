@@ -1,7 +1,7 @@
 import { IUserProfileRepository } from "Profile.Application";
 import { UserProfile } from "Profile.Domain";
 import { UserProfileModel } from "../Configurations/UserProfileConfiguration";
-import { CreateUserOptions } from "Profile.Domain/UserProfile/CreateUserOptions";
+import { UserProfileModelToUserProfileMapper } from "../Mapper/UserProfileModel-UserProfile";
 
 export class UserProfileRepository implements IUserProfileRepository {
   async GetByUserId(userId: string) {
@@ -11,7 +11,9 @@ export class UserProfileRepository implements IUserProfileRepository {
       return null;
     }
 
-    return new UserProfile(l);
+    const z = UserProfileModelToUserProfileMapper(x);
+
+    return new UserProfile(z);
   }
 
   async Update(userId: string, userProfile: UserProfile) {

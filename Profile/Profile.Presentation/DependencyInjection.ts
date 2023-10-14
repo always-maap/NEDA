@@ -1,10 +1,11 @@
 import { UserProfileService } from "Profile.Application";
 import { InjectInfraDependencies } from "Profile.Infrastructure";
-import { UserCreatedConsumer } from "Profile.Subscriber";
+import { InjectSubscriberDependencies, UserCreatedConsumer } from "Profile.Subscriber";
 import { UserProfileController } from "./Controllers/UserProfileController";
 
 export const InjectDependencies = async () => {
   const { userProfileRepository } = await InjectInfraDependencies();
+  const _ = await InjectSubscriberDependencies();
 
   const profileService = new UserProfileService(userProfileRepository);
 

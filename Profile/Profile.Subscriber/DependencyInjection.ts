@@ -2,7 +2,7 @@ import { UserProfileService } from "Profile.Application";
 import { InjectInfraDependencies } from "Profile.Infrastructure";
 import { UserCreatedConsumer } from "./IAM/UserCreatedConsumer";
 
-export const x = async () => {
+export const InjectSubscriberDependencies = async () => {
   const { userProfileRepository } = await InjectInfraDependencies();
   const profileService = new UserProfileService(userProfileRepository);
 
