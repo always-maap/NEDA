@@ -5,6 +5,6 @@ export interface CreateUserFactoryOptions {
   firstName: string;
   lastName: string;
   phone: string;
-  picture: string;
+  avatar: string;
   gender: Gender;
 }

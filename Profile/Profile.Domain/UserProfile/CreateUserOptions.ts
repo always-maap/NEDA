@@ -8,7 +8,7 @@ export interface CreateUserOptions {
   firstName: string;
   lastName: string;
   phone: string;
-  picture: string;
+  avatar: string;
   gender: Gender;
   location: Location | null;
   age: string | null;

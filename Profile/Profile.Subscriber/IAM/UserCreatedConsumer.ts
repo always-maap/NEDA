@@ -13,7 +13,7 @@ export class UserCreatedConsumer {
       FirstName: "mohammad",
       LastName: "alipanah",
       Phone: "989197532677",
-      Picture: "img",
+      Avatar: "img",
       Gender: "male",
     };
 

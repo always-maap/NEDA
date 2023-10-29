@@ -6,7 +6,7 @@ const userProfileSchema = new Schema({
   FirstName: { type: String },
   LastName: { type: String },
   Phone: { type: String },
-  Picture: { type: String },
+  Avatar: { type: String },
   Gender: { type: String, enum: Object.values(Gender), required: true },
   Location: {
     Country: { type: String },

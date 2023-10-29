@@ -3,6 +3,6 @@ export interface UserProfileCreateParam {
   FirstName: string;
   LastName: string;
   Phone: string;
-  Picture: string;
+  Avatar: string;
   Gender: string;
 }

@@ -7,6 +7,7 @@ import { UserProfileCreateParam } from "./UserProfileCreateParam";
 import { Gender } from "Profile.Domain/UserProfile/Gender";
 import { UserProfileUpdateParam } from "./UserProfileUpdateParam";
 import { UpdateUserProfileOptions } from "Profile.Domain";
+import { UserProfileGetPublicParam } from "./UserProfileGetPublicParam";
 
 export class UserProfileService implements IUserProfileService {
   private readonly _repository: IUserProfileRepository;
@@ -27,7 +28,7 @@ export class UserProfileService implements IUserProfileService {
       lastName: params.LastName,
       gender: Gender.Male,
       phone: params.Phone,
-      picture: params.Picture,
+      avatar: params.Avatar,
     });
 
     await this._repository.Add(profile);
@@ -51,5 +52,21 @@ export class UserProfileService implements IUserProfileService {
     profile.UpdateUserProfile(options);
 
     await this._repository.Update("1", profile);
+  }
+
+  async HandleGet() {
+    const profile = await this._repository.GetByUserId("1");
+
+    EnsureDomainIsNotNull(profile);
+
+    return profile;
+  }
+
+  async HandleGetPublic(params: UserProfileGetPublicParam) {
+    const profile = await this._repository.GetByUserId(params.UserId);
+
+    EnsureDomainIsNotNull(profile);
+
+    return profile;
   }
 }

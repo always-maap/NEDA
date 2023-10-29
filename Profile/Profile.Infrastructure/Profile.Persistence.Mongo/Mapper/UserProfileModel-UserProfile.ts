@@ -1,8 +1,6 @@
 import { CreateUserOptions } from "Profile.Domain/UserProfile/CreateUserOptions";
 
-export function UserProfileModelToUserProfileMapper(
-  userProfileModel: any
-): CreateUserOptions {
+export function UserProfileModelToUserProfileMapper(userProfileModel: any): CreateUserOptions {
   return {
     age: userProfileModel.Age,
     bio: userProfileModel.Bio,
@@ -13,7 +11,7 @@ export function UserProfileModelToUserProfileMapper(
     location: userProfileModel.Location,
     lookingFor: userProfileModel.LookingFor,
     phone: userProfileModel.Phone,
-    picture: userProfileModel.Picture,
+    avatar: userProfileModel.Avatar,
     pictures: userProfileModel.Pictures,
     userId: userProfileModel.UserId,
   };

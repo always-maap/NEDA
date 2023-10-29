@@ -1,11 +1,9 @@
-import { z } from "zod";
-
 import { UserProfileUpdateParam } from "Profile.Application";
-import { UserProfileUpdateSchema } from "../Validations/UserProfileUpdateValidations";
+import { UpdateUserProfileRequest } from "Profile.Contracts";
 
-type x = z.infer<typeof UserProfileUpdateSchema>;
-
-export function UserProfileUpdateMapper(req: x): UserProfileUpdateParam {
+export function UserProfileUpdateRequestToUserProfileUpdateParam(
+  req: UpdateUserProfileRequest
+): UserProfileUpdateParam {
   return {
     Age: req.age,
     Bio: req.bio,

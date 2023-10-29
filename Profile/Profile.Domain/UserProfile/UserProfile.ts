@@ -13,7 +13,7 @@ export class UserProfile extends Entity {
   FirstName: string;
   LastName: string;
   Phone: string;
-  Picture: string;
+  Avatar: string;
   Gender: Gender;
   Location: Location | null;
   Age: string | null;
@@ -28,7 +28,7 @@ export class UserProfile extends Entity {
     this.FirstName = options.firstName;
     this.LastName = options.lastName;
     this.Phone = options.phone;
-    this.Picture = options.picture;
+    this.Avatar = options.avatar;
     this.Location = options.location;
     this.Gender = options.gender;
     this.Age = options.age;

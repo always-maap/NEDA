@@ -11,3 +11,5 @@ export const UserProfileUpdateSchema = z.object({
   lookingFor: z.string(),
   education: z.string(),
 });
+
+export type UserProfileUpdateRequest = z.infer<typeof UserProfileUpdateSchema>;
