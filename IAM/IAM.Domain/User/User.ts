@@ -8,7 +8,7 @@ export class User extends Entity {
   LastName: string;
   Phone: string;
   Gender: string;
-  Picture: string;
+  Avatar: string;
   CreatedAt: Date;
   UpdatedAt: Date;
 
@@ -18,7 +18,7 @@ export class User extends Entity {
     lastName: string,
     phone: string,
     gender: string,
-    picture: string,
+    avatar: string,
     createdAt: Date,
     updatedAt: Date
   ) {
@@ -28,29 +28,13 @@ export class User extends Entity {
     this.LastName = lastName;
     this.Phone = phone;
     this.Gender = gender;
-    this.Picture = picture;
+    this.Avatar = avatar;
     this.CreatedAt = createdAt;
     this.UpdatedAt = updatedAt;
   }
 
-  public static Create(
-    id: string,
-    firstName: string,
-    lastName: string,
-    phone: string,
-    gender: string,
-    picture: string
-  ) {
-    const user = new User(
-      id,
-      firstName,
-      lastName,
-      phone,
-      gender,
-      picture,
-      new Date(),
-      new Date()
-    );
+  public static Create(id: string, firstName: string, lastName: string, phone: string, gender: string, avatar: string) {
+    const user = new User(id, firstName, lastName, phone, gender, avatar, new Date(), new Date());
 
     user.AddDomainEvent(new UserCreatedEvent(user));
 

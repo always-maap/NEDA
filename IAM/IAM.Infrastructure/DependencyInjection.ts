@@ -1,15 +1,11 @@
-import {
-  FakeSmsSender,
-  Transaction,
-  UnitOfWork,
-  OutboxRepository,
-} from "@neda/framework";
+import { FakeSmsSender, Transaction, UnitOfWork, OutboxRepository } from "@neda/framework";
 
 import { JWTTokenGenerator } from "./IAM.Authentication/JwtTokenGenerator";
 import { CreateRedisDatabase } from "./IAM.Cache.Redis/Configurations/RedisDatabase";
 import { VerifyCodeCacheProvider } from "./IAM.Cache.Redis/VerifyCode/VerifyCodeCacheProvider";
 import { UserRepository } from "./IAM.Persistence.Sql/Repositories/UserRepository";
 import { CreateDbConnection } from "./IAM.Persistence.Sql/Configurations/IAMContext";
+import { VerifyCodeGenerator } from "./IAM.Authentication/VerifyCodeGenerator";
 
 export const InjectInfraDependencies = async () => {
   const dbConnection = CreateDbConnection();
@@ -27,6 +23,8 @@ export const InjectInfraDependencies = async () => {
   const verifyCodeCacheProvider = new VerifyCodeCacheProvider(redisClient);
   const fakeSmsSender = new FakeSmsSender();
 
+  const verifyCodeGenerator = new VerifyCodeGenerator();
+
   return {
     unitOfWork,
     redisClient,
@@ -35,5 +33,6 @@ export const InjectInfraDependencies = async () => {
     outboxRepository,
     verifyCodeCacheProvider,
     fakeSmsSender,
+    verifyCodeGenerator,
   };
 };

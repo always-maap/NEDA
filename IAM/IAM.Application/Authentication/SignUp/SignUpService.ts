@@ -7,6 +7,7 @@ import { IJwtTokenGenerator } from "../../Common/IJwtTokenGenerator";
 import { SignUpParam } from "./SignUpParam";
 import { ISignUpService } from "./ISignUpService";
 import { AuthenticationResult } from "../AuthenticationResult";
+import { VerifyCodeParam } from "../VerifyCodeParam";
 
 export class SignUpService implements ISignUpService {
   private readonly _jwtTokenGenerator: IJwtTokenGenerator;
@@ -27,9 +28,20 @@ export class SignUpService implements ISignUpService {
   }
 
   public async Handle(params: SignUpParam) {
+    const x = await this._userRepository.GetUserByPhone(params.Phone);
+    const verifyCode = this._verifyCodeGenerator.GenerateCode();
+    this._verifyCodeCache.set(params.Phone, verifyCode);
+    this._smsSender.SendSms({
+      template: "verify",
+      phoneNumber: params.Phone,
+      message: verifyCode.toString(),
+    });
+  }
+
+  public async HandleVerifyCode(params: VerifyCodeParam) {
     await this._unitOfWork.Begin();
 
-    const user = User.Create(uuid.v4(), params.FirstName, params.LastName, params.Phone, params.Gender, params.Picture);
+    const user = User.Create(uuid.v4(), "", "", params.Phone, "", "");
 
     try {
       await this._userRepository.Add(user);

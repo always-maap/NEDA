@@ -5,7 +5,7 @@ export interface AuthenticationResponse {
   lastName: string;
   phone: string;
   gender: string;
-  picture: string;
+  avatar: string;
   createdAt: string;
   updatedAt: string;
 }

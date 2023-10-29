@@ -10,7 +10,7 @@ export function AuthenticationResultToAuthenticationResponse(res: Authentication
     updatedAt: res.User.UpdatedAt.toISOString(),
     gender: res.User.Gender,
     phone: res.User.Phone,
-    picture: res.User.Picture,
+    avatar: res.User.Avatar,
     token: res.Token,
   };
 }

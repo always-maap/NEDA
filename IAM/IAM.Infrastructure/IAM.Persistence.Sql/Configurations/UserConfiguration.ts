@@ -7,12 +7,12 @@ export interface UserAttributes {
   LastName: string;
   Phone: string;
   Gender: string;
-  Picture: string;
+  Avatar: string;
   CreatedAt: string;
   UpdatedAt: string;
 }
 
-type UserCreationAttributes = Optional<UserAttributes, "Picture">;
+type UserCreationAttributes = Optional<UserAttributes, "Avatar">;
 
 @Table({ tableName: "users", createdAt: false, updatedAt: false })
 export class UserModel extends Model<UserAttributes, UserCreationAttributes> {
@@ -31,8 +31,8 @@ export class UserModel extends Model<UserAttributes, UserCreationAttributes> {
   @Column({ type: DataType.STRING, field: "gender", allowNull: false })
   Gender!: string;
 
-  @Column({ type: DataType.STRING, field: "picture" })
-  Picture!: string;
+  @Column({ type: DataType.STRING, field: "avatar" })
+  Avatar!: string;
 
   @Column({ type: DataType.STRING, field: "created_at" })
   CreatedAt!: string;

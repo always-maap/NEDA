@@ -1,7 +1,5 @@
-export interface SignUpRequest {
-  firstName: string;
-  lastName: string;
-  phone: string;
-  gender: string;
-  picture: string;
-}
+import { z } from "zod";
+
+export const SignUpSchema = z.object({ phone: z.string() });
+
+export type SignUpRequest = z.infer<typeof SignUpSchema>;

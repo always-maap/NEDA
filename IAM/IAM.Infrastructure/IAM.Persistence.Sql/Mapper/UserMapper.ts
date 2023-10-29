@@ -8,7 +8,7 @@ export function UserMapper(user: User): UserAttributes {
     LastName: user.LastName,
     Phone: user.Phone,
     Gender: user.Gender,
-    Picture: user.Picture,
+    Avatar: user.Avatar,
     CreatedAt: user.CreatedAt.toString(),
     UpdatedAt: user.UpdatedAt.toString(),
   };

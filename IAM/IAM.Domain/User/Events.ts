@@ -8,7 +8,7 @@ export class UserCreatedEvent extends DomainEvent {
   LastName: string;
   Phone: string;
   Gender: string;
-  Picture: string;
+  Avatar: string;
   CreatedAt: Date;
   UpdatedAt: Date;
 
@@ -19,7 +19,7 @@ export class UserCreatedEvent extends DomainEvent {
     this.LastName = user.LastName;
     this.Phone = user.Phone;
     this.Gender = user.Gender;
-    this.Picture = user.Picture;
+    this.Avatar = user.Avatar;
     this.CreatedAt = user.CreatedAt;
     this.UpdatedAt = user.UpdatedAt;
   }
