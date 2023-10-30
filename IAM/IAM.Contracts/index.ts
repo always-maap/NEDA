@@ -1,4 +1,3 @@
-export * from "./Authentication/SignUpRequest";
-export * from "./Authentication/SignInRequest";
-export * from "./Authentication/VerifyCodeRequest";
+export * from "./Authentication/OptRequest";
+export * from "./Authentication/VerifyRequest";
 export * from "./Authentication/AuthenticationResponse";

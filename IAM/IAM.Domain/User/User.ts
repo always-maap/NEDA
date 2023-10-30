@@ -1,4 +1,5 @@
 import { Entity } from "@neda/framework";
+import * as uuid from "uuid";
 
 import { UserCreatedEvent } from "./Events";
 
@@ -12,7 +13,7 @@ export class User extends Entity {
   CreatedAt: Date;
   UpdatedAt: Date;
 
-  private constructor(
+  constructor(
     id: string,
     firstName: string,
     lastName: string,
@@ -33,8 +34,8 @@ export class User extends Entity {
     this.UpdatedAt = updatedAt;
   }
 
-  public static Create(id: string, firstName: string, lastName: string, phone: string, gender: string, avatar: string) {
-    const user = new User(id, firstName, lastName, phone, gender, avatar, new Date(), new Date());
+  public static Create(firstName: string, lastName: string, phone: string, gender: string, avatar: string) {
+    const user = new User(uuid.v4(), firstName, lastName, phone, gender, avatar, new Date(), new Date());
 
     user.AddDomainEvent(new UserCreatedEvent(user));
 

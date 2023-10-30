@@ -1,4 +1,4 @@
-export interface VerifyCodeParam {
+export interface VerifyParam {
   Phone: string;
   Code: number;
 }

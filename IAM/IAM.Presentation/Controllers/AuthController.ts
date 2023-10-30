@@ -1,47 +1,32 @@
 import type { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
-import { ISignInService, ISignUpService } from "IAM.Application";
-import { SignInSchema, SignUpSchema, VerifyCodeSchema } from "IAM.Contracts";
-import { SignUpRequestToSignUpParam } from "../Mapper/SignUpRequest-SignUpParam";
-import { SignInMapper } from "../Mapper/SignInMapper";
-import { VerifyCodeMapper } from "../Mapper/VerifyCodeMapper";
+import { IAuthenticationService } from "IAM.Application";
+import { OtpSchema, VerifySchema } from "IAM.Contracts";
+import { OtpRequestToAuthenticationParam } from "../Mapper/OtpRequest-AuthenticationParam";
+import { VerifyCodeRequestToVerifyCodeParam } from "../Mapper/VerifyCodeRequest-VerifyCodeParam";
 import { AuthenticationResultToAuthenticationResponse } from "../Mapper/AuthenticationResult-AuthenticationResponse";
 
 export class AuthController {
-  private readonly _signUpService: ISignUpService;
-  private readonly _signInService: ISignInService;
+  private readonly _authenticationService: IAuthenticationService;
 
-  constructor(signUpService: ISignUpService, signInService: ISignInService) {
-    this._signUpService = signUpService;
-    this._signInService = signInService;
+  constructor(authenticationService: IAuthenticationService) {
+    this._authenticationService = authenticationService;
   }
 
-  public SignUp = async (req: Request, res: Response) => {
-    const body = SignUpSchema.parse(req.body);
-    const mappedParam = SignUpRequestToSignUpParam(body);
-    const x = await this._signUpService.Handle(mappedParam);
+  public Otp = async (req: Request, res: Response) => {
+    const OtpBody = OtpSchema.parse(req.body);
+    const mappedParam = OtpRequestToAuthenticationParam(OtpBody);
+    const x = await this._authenticationService.Handle(mappedParam);
     res.send("nice");
   };
 
-  public SignUpVerifyCode = async (req: Request, res: Response) => {
-    const body = VerifyCodeSchema.parse(req.body);
-    const mappedParam = VerifyCodeMapper(body);
-    const resp = await this._signUpService.HandleVerifyCode(mappedParam);
-    res.status(StatusCodes.CREATED).send(resp);
-  };
+  public Verify = async (req: Request, res: Response) => {
+    const verifyBody = VerifySchema.parse(req.body);
+    const mappedParam = VerifyCodeRequestToVerifyCodeParam(verifyBody);
+    const x = await this._authenticationService.HandleVerifyCode(mappedParam);
+    const resp = AuthenticationResultToAuthenticationResponse(x);
 
-  public SignIn = async (req: Request, res: Response) => {
-    const body = SignInSchema.parse(req.body);
-    const mappedParam = SignInMapper(body);
-    const x = await this._signInService.Handle(mappedParam);
-    res.send("nice");
-  };
-
-  public SignInVerifyCode = async (req: Request, res: Response) => {
-    const body = VerifyCodeSchema.parse(req.body);
-    const mappedParam = VerifyCodeMapper(body);
-    const x = await this._signInService.HandleVerifyCode(mappedParam);
-    res.send(x);
+    res.status(StatusCodes.OK).send(resp);
   };
 }

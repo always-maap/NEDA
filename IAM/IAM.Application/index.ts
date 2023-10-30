@@ -3,10 +3,8 @@ export * from "./Common/IUserRepository";
 export * from "./Common/IVerifyCodeCacheProvider";
 export * from "./Common/IVerifyCodeGenerator";
 
-export * from "./Authentication/SignUp/SignUpParam";
-export * from "./Authentication/SignUp/ISignUpService";
-export * from "./Authentication/SignUp/SignUpService";
-
-export * from "./Authentication/SignIn/SignInParam";
-export * from "./Authentication/SignIn/SignInService";
-export * from "./Authentication/SignIn/ISignInService";
+export * from "./Authentication/AuthenticationParam";
+export * from "./Authentication/AuthenticationResult";
+export * from "./Authentication/IAuthenticationService";
+export * from "./Authentication/AuthenticationService";
+export * from "./Authentication/VerifyParam";

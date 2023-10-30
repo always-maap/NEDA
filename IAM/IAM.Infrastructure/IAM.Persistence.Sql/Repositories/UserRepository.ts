@@ -23,6 +23,21 @@ export class UserRepository implements IUserRepository {
   async GetUserByPhone(phone: string) {
     const user = await UserModel.findOne({ where: { Phone: phone } });
 
-    return user as any;
+    if (!user) {
+      return null;
+    }
+
+    const u = new User(
+      user.Id,
+      user.FirstName,
+      user.LastName,
+      user.Phone,
+      user.Gender,
+      user.Avatar,
+      new Date(user.CreatedAt),
+      new Date(user.UpdatedAt)
+    );
+
+    return u;
   }
 }
