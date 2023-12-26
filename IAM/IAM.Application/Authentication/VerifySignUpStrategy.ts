@@ -18,7 +18,13 @@ export class VerifySignUpStrategy implements IVerifyStrategy {
   async Apply(phone: string) {
     await this._unitOfWork.Begin();
 
-    const user = User.Create("", "", phone, "", "");
+    const user = User.Create({
+      firstName: "",
+      lastName: "",
+      phone,
+      gender: "",
+      avatar: "",
+    });
 
     try {
       await this._userRepository.Add(user);

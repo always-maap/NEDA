@@ -1,8 +1,8 @@
 import { DomainEvent } from "@neda/framework";
 
-import { User } from "./User";
+import { User } from "../User";
 
-export class UserCreatedEvent extends DomainEvent {
+export class UserUpdatedEvent extends DomainEvent {
   Id: string;
   FirstName: string;
   LastName: string;

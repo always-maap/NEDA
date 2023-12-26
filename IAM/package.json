@@ -1,8 +1,8 @@
 {
-  "name": "iam",
+  "name": "@neda/iam",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "IAM.Contracts/index.ts",
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register IAM.Presentation/Program.ts",
     "db:migrate": "sequelize-cli db:migrate"

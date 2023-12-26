@@ -11,6 +11,7 @@ export const MapRoutes = async () => {
   routes.post("/verify", authController.Verify);
 
   routes.get("/user", userController.Get);
+  routes.put("/user", userController.Update);
 
   return routes;
 };

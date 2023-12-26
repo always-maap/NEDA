@@ -9,20 +9,29 @@ services:
       - POSTGRES_DB=postgres
     ports:
       - "5432:5432"
+    networks:
+      - neda-network
     image: postgres
 
   iam_cache:
     container_name: iam_cache
     ports:
       - "6379:6379"
+    networks:
+      - neda-network
     image: redis
 
   iam_bus:
     container_name: iam_bus
-    image: rabbitmq:management
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
     ports:
       - "5672:5672"
       - "15672:15672"
+    networks:
+      - neda-network
+    image: rabbitmq:management
+
+networks:
+  neda-network:

@@ -18,7 +18,7 @@ export class AuthController {
     const OtpBody = OtpSchema.parse(req.body);
     const mappedParam = OtpRequestToAuthenticationParam(OtpBody);
     const x = await this._authenticationService.Handle(mappedParam);
-    res.send("nice");
+    res.json({ message: "nice" }).send();
   };
 
   public Verify = async (req: Request, res: Response) => {
