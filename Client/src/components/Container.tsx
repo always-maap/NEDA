@@ -9,7 +9,7 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(({ asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : "div";
-  return <Comp className={cn("container max-w-md h-full", props.className)} ref={ref} {...props} />;
+  return <Comp className={cn("container max-w-lg", props.className)} ref={ref} {...props} />;
 });
 Container.displayName = "Container";
 

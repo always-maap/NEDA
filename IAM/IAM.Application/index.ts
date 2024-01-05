@@ -8,3 +8,5 @@ export * from "./Authentication/AuthenticationResult";
 export * from "./Authentication/IAuthenticationService";
 export * from "./Authentication/AuthenticationService";
 export * from "./Authentication/VerifyParam";
+
+export * from "./User/UserUpdateParam";

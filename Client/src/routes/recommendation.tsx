@@ -1,15 +1,18 @@
 import { MixerHorizontalIcon, Cross2Icon, HeartFilledIcon } from "@radix-ui/react-icons";
 
 import sampleImage from "../assets/sample.png";
+import { Container } from "@/components/Container";
 
 export default function Recommendation() {
   return (
     <>
-      <header className="flex justify-between py-2">
-        <div>Logo</div>
-        <MixerHorizontalIcon width={24} height={24} />
-      </header>
-      <div className="relative grid h-full">
+      <Container asChild>
+        <header className="flex justify-between py-2">
+          <div>Logo</div>
+          <MixerHorizontalIcon width={24} height={24} />
+        </header>
+      </Container>
+      <div className="relative grid h-full px-1">
         <img className="rounded-md h-full object-cover row-start-1 col-start-1" src={sampleImage} />
         <div className="row-start-1 col-start-1 flex flex-col justify-between">
           <div className="flex gap-1 p-2">

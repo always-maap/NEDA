@@ -7,6 +7,7 @@ import cors from "cors";
 
 import { MapRoutes } from "./Controllers";
 import { UseWorkers } from "IAM.Worker";
+import { UseAuthentication } from "@neda/framework";
 
 (async () => {
   const app = express();
@@ -20,6 +21,8 @@ import { UseWorkers } from "IAM.Worker";
 
   // cors configuration
   app.use(cors());
+
+  app.use(UseAuthentication);
 
   // map routes
   const mappedRoutes = await MapRoutes();

@@ -4,19 +4,17 @@ import { PersonIcon, HeartIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 
 export default function Home() {
   return (
-    <Container asChild>
-      <div>
-        <main className="flex flex-col h-full">
-          <div className="flex-grow">
-            <Outlet />
-          </div>
-          <nav className="flex justify-evenly py-8">
-            <HeartIcon width={36} height={36} className="text-gray-600" />
-            <LightningBoltIcon width={36} height={36} className="text-gray-600" />
-            <PersonIcon width={36} height={36} className="text-gray-600" />
-          </nav>
-        </main>
+    <main className="flex flex-col h-full">
+      <div className="flex flex-col flex-grow">
+        <Outlet />
       </div>
-    </Container>
+      <Container asChild>
+        <nav className="flex justify-evenly py-8">
+          <HeartIcon width={36} height={36} className="text-gray-600" />
+          <LightningBoltIcon width={36} height={36} className="text-gray-600" />
+          <PersonIcon width={36} height={36} className="text-gray-600" />
+        </nav>
+      </Container>
+    </main>
   );
 }

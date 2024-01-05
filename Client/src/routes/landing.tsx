@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export default function Root() {
   return (
     <Container asChild>
-      <main className="flex flex-col justify-between py-8">
+      <main className="flex flex-col justify-between py-8 h-full">
         <h1 className="text-center text-3xl">
           Make new <strong>Friends</strong>.
           <span className="block">

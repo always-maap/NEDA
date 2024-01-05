@@ -5,4 +5,5 @@ import { User } from "IAM.Domain";
 export interface IUserRepository {
   Add(user: User): Promise<void>;
   GetUserByPhone(phone: string): Promise<User | null>;
+  Update(user: User): Promise<void>;
 }

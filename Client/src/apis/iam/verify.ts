@@ -13,6 +13,9 @@ export async function verify(params: VerifyRequest) {
 
   if (resp.ok) {
     const data: AuthenticationResponse = await resp.json();
+
+    localStorage.setItem("token", data.token);
+
     return data;
   }
 }

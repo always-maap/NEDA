@@ -6,3 +6,5 @@ export const UserUpdateRequestSchema = z.object({
   gender: z.string(),
   avatar: z.string(),
 });
+
+export type UserUpdateRequest = z.infer<typeof UserUpdateRequestSchema>;
