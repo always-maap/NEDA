@@ -6,12 +6,14 @@ export default function Home() {
   return (
     <Container asChild>
       <div>
-        <main className="mt-8">
-          <Outlet />
-          <nav className="flex justify-evenly">
-            <HeartIcon width={24} height={24} />
-            <LightningBoltIcon width={24} height={24} />
-            <PersonIcon width={24} height={24} />
+        <main className="flex flex-col h-full">
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <nav className="flex justify-evenly py-8">
+            <HeartIcon width={36} height={36} className="text-gray-600" />
+            <LightningBoltIcon width={36} height={36} className="text-gray-600" />
+            <PersonIcon width={36} height={36} className="text-gray-600" />
           </nav>
         </main>
       </div>
